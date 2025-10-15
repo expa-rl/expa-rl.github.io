@@ -483,13 +483,108 @@
   <div class="container is-max-desktop">
     <div class="columns is-vcentered is-variable is-6">
       
-      <div class="column is-6">
-        <figure class="image">
-          <video class="is-fullwidth" autoplay muted loop playsinline controls>
-            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
-          </video>
-        </figure>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth is-narrow">
+          <caption class="has-text-weight-semibold">
+            The number of using planning phrases across different training strategies.
+          </caption>
+          <thead>
+            <tr>
+              <th>Phrase</th>
+              <th class="has-text-right">EARL</th>
+              <th class="has-text-right">Prompt+CPO</th>
+              <th class="has-text-right">Prompt+GRPO</th>
+              <th class="has-text-right">SFT+GRPO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>not close</td>
+              <td class="num">9,961</td>
+              <td class="num">99</td>
+              <td class="num">0</td>
+              <td class="num">18</td>
+            </tr>
+            <tr>
+              <td>is close</td>
+              <td class="num">805</td>
+              <td class="num">2,930</td>
+              <td class="num">0</td>
+              <td class="num">855</td>
+            </tr>
+            <tr>
+              <td>close to</td>
+              <td class="num">3,019</td>
+              <td class="num">1,138</td>
+              <td class="num">0</td>
+              <td class="num">2,253</td>
+            </tr>
+            <tr>
+              <td>still close</td>
+              <td class="num">9</td>
+              <td class="num">193</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+            <tr>
+              <td>different approach</td>
+              <td class="num">7,586</td>
+              <td class="num">92</td>
+              <td class="num">1,650</td>
+              <td class="num">15</td>
+            </tr>
+            <tr>
+              <td>another approach</td>
+              <td class="num">0</td>
+              <td class="num">1,769</td>
+              <td class="num">0</td>
+              <td class="num">219</td>
+            </tr>
+            <tr>
+              <td>different combination</td>
+              <td class="num">8,851</td>
+              <td class="num">39</td>
+              <td class="num">2,040</td>
+              <td class="num">377</td>
+            </tr>
+            <tr>
+              <td>another combination</td>
+              <td class="num">1,784</td>
+              <td class="num">46</td>
+              <td class="num">0</td>
+              <td class="num">58</td>
+            </tr>
+            <tr>
+              <td>negate</td>
+              <td class="num">682</td>
+              <td class="num">4</td>
+              <td class="num">0</td>
+              <td class="num">121</td>
+            </tr>
+            <tr>
+              <td>far from</td>
+              <td class="num">8,264</td>
+              <td class="num">141</td>
+              <td class="num">0</td>
+              <td class="num">10</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th class="num">40,961</th>
+              <th class="num">6,451</th>
+              <th class="num">3,690</th>
+              <th class="num">3,926</th>
+            </tr>
+          </tfoot>
+        </table>
       </div>
+
+      <style>
+        .table .num { text-align: right; white-space: nowrap; }
+      </style>
+
 
       <div class="column is-6">
         <h2 class="title is-3"><span class="dvima">text 5</span></h2>
