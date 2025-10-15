@@ -6,13 +6,13 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="EXPA-RL: EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE">
+  <meta name="title" content="EXPA-RL">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta name="description" content="EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
   <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
   <!-- TODO: List all authors -->
-  <meta name="author" content="Zhongqi Yue, Weishi Wang">
+  <meta name="author" content="Zhongqi Yue, Weishi Wang, Yundaichuan Zhan, Juncheng Li, Daniel Dahlmeier, Fredrik D. Johansson">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
@@ -21,35 +21,18 @@
   <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
   <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
+  <meta property="og:title" content="EXPA-RL">
   <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta property="og:description" content="EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE">
   <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <meta property="og:url" content="https://expa-rl.github.io/">
   <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
   <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:author" content="Zhongqi Yue, Weishi Wang, Yundaichuan Zhan, Juncheng Li, Daniel Dahlmeier, Fredrik D. Johansson">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="KEYWORD1">
   <meta property="article:tag" content="KEYWORD2">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
 
   <!-- Academic/Research Specific -->
   <meta name="citation_title" content="PAPER_TITLE">
@@ -241,7 +224,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">EXPA-RL: EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE</h1>
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
@@ -296,8 +279,7 @@
     <div class="container is-max-desktop">
         <div class="rows">
             <div class="rows is-centered ">
-                <h2 class="title is-3">Abstract</h2>
-                
+                <h2 class="title is-3"><span class="dvima">Abstract</span></h2>
                 <p style="font-size: 125%">Large Language Models (LLMs) are powerful reasoners in natural language, but their actions are typically confined to outputting vocabulary tokens. As a result, interactions with external environments—such as symbolic operators or simulators—must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization. On tasks requiring multi-turn interactions and contingent planning, EARL outperforms strong baselines with vocabulary-constrained actions. It performs robustly across calculator-based multi-task learning and, in the partially observed sorting problem, achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.</p>
             </div>
         </div>
@@ -319,7 +301,7 @@
 
       <!-- right: text -->
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">base_mdp</span></h2>
+        <h2 class="title is-3"><span class="dvima">base mdp</span></h2>
         <div class="content is-size-5">
           <p>
             In existing works, LLM is confined to its vocabulary space V for both reasoning and interaction with external environments, where the latter requires an external parser to detect special patterns.
@@ -333,7 +315,6 @@
   <div class="container is-max-desktop">
     <div class="columns is-vcentered is-variable is-6">
       
-      <!-- left: video -->
       <div class="column is-6">
         <figure class="image">
           <video class="is-fullwidth" autoplay muted loop playsinline controls>
@@ -342,9 +323,8 @@
         </figure>
       </div>
 
-      <!-- right: text -->
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">earl_mdp</span></h2>
+        <h2 class="title is-3"><span class="dvima">earl mdp</span></h2>
         <div class="content is-size-5">
           <p>
             We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
@@ -355,7 +335,48 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      
+      <div class="column is-6">
+        <figure class="image">
+          <video class="is-fullwidth" autoplay muted loop playsinline controls>
+            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
 
+      <div class="column is-6">
+        <h2 class="title is-3"><span class="dvima">earl mdp</span></h2>
+        <div class="content is-size-5">
+          <p>
+            We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <figure class="image mt-4">
+      <video class="is-fullwidth" autoplay muted loop playsinline controls
+             aria-label="Speed comparison with popular CPU and GPU-based robotics simulator."
+             poster="static/images/speed_poster.jpg">
+        <source src="static/videos/speed.mp4" type="video/mp4">
+      </video>
+    </figure>
+
+    <div class="content is-size-5">
+      <p>
+        visualizes the deterministic decision tree induced by EARL on Sort-4 inputs under greedy decoding. Each internal node represents a binary comparison, and each leaf corresponds to a sequence of swaps for producing a sorted output. Red nodes indicate redundant comparisons that do not affect the final decision and can be pruned to yield the simplified variant EARL∗ described in the main text.
+      </p>
+    </div>
+  </div>
+</section>
 
 
 
