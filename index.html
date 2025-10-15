@@ -6,7 +6,7 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="EXPA-RL">
+  <meta name="title" content="EARL">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
   <meta name="description" content="EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
@@ -21,7 +21,7 @@
   <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
   <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="EXPA-RL">
+  <meta property="og:title" content="EARL">
   <!-- TODO: Same as description above -->
   <meta property="og:description" content="EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE">
   <!-- TODO: Replace with your actual website URL -->
@@ -56,7 +56,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 
-  <title>EXPA-RL</title>
+  <title>EARL</title>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -227,7 +227,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-2 publication-title">EXPA-RL: EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE</h1>
+            <h1 class="title is-2 publication-title">EARL: EXPANDING THE ACTION SPACE OF LLMS TO REASON BEYOND LANGUAGE</h1>
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
@@ -364,20 +364,20 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
-    <figure class="image mt-4">
-      <video class="is-fullwidth" autoplay muted loop playsinline controls
-             aria-label="Speed comparison with popular CPU and GPU-based robotics simulator."
-             poster="static/images/speed_poster.jpg">
-        <source src="static/videos/speed.mp4" type="video/mp4">
-      </video>
-    </figure>
-
+    <h2 class="title is-3"><span class="dvima">SORT-4</span></h2>
+    
     <div class="content is-size-5">
       <p>
         visualizes the deterministic decision tree induced by EARL on Sort-4 inputs under greedy decoding. Each internal node represents a binary comparison, and each leaf corresponds to a sequence of swaps for producing a sorted output. Red nodes indicate redundant comparisons that do not affect the final decision and can be pruned to yield the simplified variant EARL∗ described in the main text.
       </p>
     </div>
+
+    <figure class="image mt-4">
+      <video class="is-fullwidth" autoplay muted loop playsinline controls>
+        <source src="static/videos/sort(左右).mp4" type="video/mp4">
+      </video>
+    </figure>
+
   </div>
 </section>
 
