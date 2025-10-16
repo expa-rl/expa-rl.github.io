@@ -501,11 +501,11 @@
         .table .num { text-align: right; white-space: nowrap; }
       </style>
 
-      <div class="column is-6">
+      <div class="column is-4-desktop is-12-tablet">
         <h2 class="title is-3"><span class="dvima">text 5</span></h2>
         <div class="content is-size-5">
           <p>
-            We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
+            This table summarizes how different training setups express intermediate feedback and plan transitions in natural language for the Countdown task. Methods with weaker guidance tend to reuse a small set of phrases, limiting exploration. Counterfactual optimization broadens the repertoire, yielding more options for moving between steps. EARL shows the strongest usage and diversity: it frequently employs conditional cues such as “not close,” “close to,” and “far from” to diagnose progress and steer the next action—either tightening the current plan or pivoting to a new one. The key takeaway is that planning quality improves when the model has richer, more precise transition phrases to articulate state and choose the next move, leading to steadier refinement and more controlled strategy shifts.
           </p>
         </div>
       </div>
@@ -519,7 +519,7 @@
     
     <div class="content is-size-5">
       <p>
-        visualizes the deterministic decision tree induced by EARL on Sort-4 inputs under greedy decoding. Each internal node represents a binary comparison, and each leaf corresponds to a sequence of swaps for producing a sorted output. Red nodes indicate redundant comparisons that do not affect the final decision and can be pruned to yield the simplified variant EARL∗ described in the main text.
+        We visualize the deterministic decision tree induced by EARL on Sort-4 inputs under greedy decoding. Each internal node denotes a binary comparison, and each leaf specifies the sequence of swaps that produces a sorted output. The left panel shows the EARL* pseudocode; the right panel presents the corresponding decision process.
       </p>
     </div>
 
