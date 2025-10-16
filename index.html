@@ -146,6 +146,7 @@
         margin-top: 10px;
         margin-right: 12px; /* to give some space between the image and the text */
     }
+    .table .num { text-align: right; white-space: nowrap; }
   </style>
 
   <!-- Non-critical CSS - Load asynchronously -->
@@ -321,9 +322,9 @@
             </div>
 
               <div class="is-size-5 publication-authors">
-                <span class="author-block"><sup>1 </sup><img src="static/images/Chalmers.svg" class="small-image">  <img src="static/images/Chamlers_Logo.png" class="small-image-30"></span>
-                <span class="author-block"><sup>2 </sup><img src="static/images/SAP_Logo.png" class="small-image-30"></span>
-                <span class="author-block"><sup>3 </sup><img src="static/images/ZJU_Logo.png" class="small-image-30"></span>
+                <span class="author-block"><sup>1 </sup><img src="static/images/Chalmers.svg" class="small-image-60">  <img src="static/images/Chamlers_Logo.png" class="small-image-30"></span>
+                <span class="author-block"><sup>2 </sup><img src="static/images/SAP_Logo.png" class="small-image-60"></span>
+                <span class="author-block"><sup>3 </sup><img src="static/images/ZJU_Logo.png" class="small-image-60"></span>
                 <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution. zhongqi@chalmers.se, weishi.wang@sap.com</small></span>
               </div>
 
@@ -362,7 +363,7 @@
         <div class="rows">
             <div class="rows is-centered ">
                 <h2 class="title is-3"><span class="dvima">Abstract</span></h2>
-                <p style="font-size: 125%">Large Language Models (LLMs) are powerful reasoners in natural language, but their actions are typically confined to outputting vocabulary tokens. As a result, interactions with external environments—such as symbolic operators or simulators—must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization. On tasks requiring multi-turn interactions and contingent planning, EARL outperforms strong baselines with vocabulary-constrained actions. It performs robustly across calculator-based multi-task learning and, in the partially observed sorting problem, achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.</p>
+                <p>Large Language Models (LLMs) are powerful reasoners in natural language, but their actions are typically confined to outputting vocabulary tokens. As a result, interactions with external environments—such as symbolic operators or simulators—must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization. On tasks requiring multi-turn interactions and contingent planning, EARL outperforms strong baselines with vocabulary-constrained actions. It performs robustly across calculator-based multi-task learning and, in the partially observed sorting problem, achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.</p>
             </div>
         </div>
     </div>
@@ -456,133 +457,129 @@
         <h2 class="subtitle has-text-centered">
           description.
         </h2>
+        </div>
       </div>
+    </div>
   </div>
-</div>
-</div>
 </section>
 
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-vcentered is-variable is-3">
-      <div class="table-container">
-        <table class="table is-striped is-hoverable is-fullwidth is-narrow">
-          <caption class="has-text-weight-semibold">
-            The number of using planning phrases across different training strategies.
-          </caption>
-          <thead>
-            <tr>
-              <th>Phrase</th>
-              <th class="has-text-right">EARL</th>
-              <th class="has-text-right">Prompt+CPO</th>
-              <th class="has-text-right">Prompt+GRPO</th>
-              <th class="has-text-right">SFT+GRPO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>not close</td>
-              <td class="num">9,961</td>
-              <td class="num">99</td>
-              <td class="num">0</td>
-              <td class="num">18</td>
-            </tr>
-            <tr>
-              <td>is close</td>
-              <td class="num">805</td>
-              <td class="num">2,930</td>
-              <td class="num">0</td>
-              <td class="num">855</td>
-            </tr>
-            <tr>
-              <td>close to</td>
-              <td class="num">3,019</td>
-              <td class="num">1,138</td>
-              <td class="num">0</td>
-              <td class="num">2,253</td>
-            </tr>
-            <tr>
-              <td>still close</td>
-              <td class="num">9</td>
-              <td class="num">193</td>
-              <td class="num">0</td>
-              <td class="num">0</td>
-            </tr>
-            <tr>
-              <td>different approach</td>
-              <td class="num">7,586</td>
-              <td class="num">92</td>
-              <td class="num">1,650</td>
-              <td class="num">15</td>
-            </tr>
-            <tr>
-              <td>another approach</td>
-              <td class="num">0</td>
-              <td class="num">1,769</td>
-              <td class="num">0</td>
-              <td class="num">219</td>
-            </tr>
-            <tr>
-              <td>different combination</td>
-              <td class="num">8,851</td>
-              <td class="num">39</td>
-              <td class="num">2,040</td>
-              <td class="num">377</td>
-            </tr>
-            <tr>
-              <td>another combination</td>
-              <td class="num">1,784</td>
-              <td class="num">46</td>
-              <td class="num">0</td>
-              <td class="num">58</td>
-            </tr>
-            <tr>
-              <td>negate</td>
-              <td class="num">682</td>
-              <td class="num">4</td>
-              <td class="num">0</td>
-              <td class="num">121</td>
-            </tr>
-            <tr>
-              <td>far from</td>
-              <td class="num">8,264</td>
-              <td class="num">141</td>
-              <td class="num">0</td>
-              <td class="num">10</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th>Total</th>
-              <th class="num">40,961</th>
-              <th class="num">6,451</th>
-              <th class="num">3,690</th>
-              <th class="num">3,926</th>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-
-      <style>
-        .table .num { text-align: right; white-space: nowrap; }
-      </style>
-
-      <div class="column is-4-desktop is-12-tablet">
-        <h2 class="title is-3"><span class="dvima">Contingent Learning</span></h2>
-        <div class="content is-size-5">
-          <p>
-            This table summarizes contingent learning dynamics in the Countdown task—how different training setups express intermediate feedback and plan transitions in natural language as each step depends on prior actions and outcomes. 
-          </p>
-        </div>
+    <div class="column is-4-desktop is-12-tablet">
+      <h2 class="title is-3"><span class="dvima">Contingent Learning</span></h2>
+      <div class="content is-size-5">
+        <p>
+          This table summarizes contingent learning dynamics in the Countdown task—how different training setups express intermediate feedback and plan transitions in natural language as each step depends on prior actions and outcomes. Methods with weaker guidance tend to reuse a small set of phrases, limiting exploration. Counterfactual optimization broadens the repertoire, yielding more options for moving between steps. EARL shows the strongest usage and diversity: it frequently employs conditional cues such as “not close,” “close to,” and “far from” to diagnose progress and steer the next action—either tightening the current plan or pivoting to a new one. The takeaway is that planning quality improves when the model has richer, more precise transition phrases to articulate state and choose the next move, leading to steadier refinement and more controlled strategy shifts.
+        </p>
       </div>
     </div>
-    <div class="content is-size-5">
-      <p>
-        Methods with weaker guidance tend to reuse a small set of phrases, limiting exploration. Counterfactual optimization broadens the repertoire, yielding more options for moving between steps. EARL shows the strongest usage and diversity: it frequently employs conditional cues such as “not close,” “close to,” and “far from” to diagnose progress and steer the next action—either tightening the current plan or pivoting to a new one. The takeaway is that planning quality improves when the model has richer, more precise transition phrases to articulate state and choose the next move, leading to steadier refinement and more controlled strategy shifts.
-      </p>
+    
+    
+    
+    
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth is-narrow">
+        <caption class="has-text-weight-semibold">
+          The number of using planning phrases across different training strategies.
+        </caption>
+        <thead>
+          <tr>
+            <th>Phrase</th>
+            <th class="has-text-right">EARL</th>
+            <th class="has-text-right">Prompt+CPO</th>
+            <th class="has-text-right">Prompt+GRPO</th>
+            <th class="has-text-right">SFT+GRPO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>not close</td>
+            <td class="num">9,961</td>
+            <td class="num">99</td>
+            <td class="num">0</td>
+            <td class="num">18</td>
+          </tr>
+          <tr>
+            <td>is close</td>
+            <td class="num">805</td>
+            <td class="num">2,930</td>
+            <td class="num">0</td>
+            <td class="num">855</td>
+          </tr>
+          <tr>
+            <td>close to</td>
+            <td class="num">3,019</td>
+            <td class="num">1,138</td>
+            <td class="num">0</td>
+            <td class="num">2,253</td>
+          </tr>
+          <tr>
+            <td>still close</td>
+            <td class="num">9</td>
+            <td class="num">193</td>
+            <td class="num">0</td>
+            <td class="num">0</td>
+          </tr>
+          <tr>
+            <td>different approach</td>
+            <td class="num">7,586</td>
+            <td class="num">92</td>
+            <td class="num">1,650</td>
+            <td class="num">15</td>
+          </tr>
+          <tr>
+            <td>another approach</td>
+            <td class="num">0</td>
+            <td class="num">1,769</td>
+            <td class="num">0</td>
+            <td class="num">219</td>
+          </tr>
+          <tr>
+            <td>different combination</td>
+            <td class="num">8,851</td>
+            <td class="num">39</td>
+            <td class="num">2,040</td>
+            <td class="num">377</td>
+          </tr>
+          <tr>
+            <td>another combination</td>
+            <td class="num">1,784</td>
+            <td class="num">46</td>
+            <td class="num">0</td>
+            <td class="num">58</td>
+          </tr>
+          <tr>
+            <td>negate</td>
+            <td class="num">682</td>
+            <td class="num">4</td>
+            <td class="num">0</td>
+            <td class="num">121</td>
+          </tr>
+          <tr>
+            <td>far from</td>
+            <td class="num">8,264</td>
+            <td class="num">141</td>
+            <td class="num">0</td>
+            <td class="num">10</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th class="num">40,961</th>
+            <th class="num">6,451</th>
+            <th class="num">3,690</th>
+            <th class="num">3,926</th>
+          </tr>
+        </tfoot>
+      </table>
     </div>
-  </div>
+
+    
+
+      
+    </div>
 </section>
 
 <section class="section">
@@ -603,6 +600,18 @@
 
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
