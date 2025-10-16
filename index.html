@@ -364,38 +364,34 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="table-container">
-
-      <!-- 两张图片：移动端上下排列，桌面端并排 -->
-      <div class="columns is-mobile is-variable is-3">
-        <div class="column">
-          <figure class="image">
-            <img
-              src="static/images/calc_bench_3b.png"
-              alt="Calc-Bench — Grouped by Task (Qwen-2.5 3B)"
-              loading="lazy"
-            >
-          </figure>
-          
-        </div>
-        <div class="column">
-          <figure class="image">
-            <img
-              src="static/images/calc_bench_7b.png"
-              alt="Calc-Bench — Grouped by Task (Qwen-2.5 7B)"
-              loading="lazy"
-            >
-          </figure>
-        </div>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- TODO: Replace with your research result images -->
+        <img src="static/images/calc_bench_3b.png" alt="Calc-Bench — Qwen-2.5 3B" loading="lazy"/>
+        <p class="has-text-grey is-size-7 mt-1">
+          <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
+        </p>
+        <!-- TODO: Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          description.
+        </h2>
       </div>
-
-      <p class="has-text-grey is-size-7 mt-1">
-        <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
-      </p>
-    </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/calc_bench_7b.png" alt="Calc-Bench — Qwen-2.5 7B" loading="lazy"/>
+        <p class="has-text-grey is-size-7 mt-1">
+          <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
+        </p>
+        <h2 class="subtitle has-text-centered">
+          description.
+        </h2>
+      </div>
   </div>
+</div>
+</div>
 </section>
 
 
