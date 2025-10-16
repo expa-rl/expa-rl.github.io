@@ -221,7 +221,14 @@
 
 
 
-
+  <style>
+    .item {
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+    .item img { display: block; }
+    .subtitle { border: 0 !important; box-shadow: none !important; }
+  </style>
 
 
 
@@ -347,7 +354,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">text-4</span></h2>
-    
     <div class="content is-size-5">
       <p>
         An example rollout with ExpA. Here, &lt;sw&lt; and &lt;cp&lt; route to the swap and compare environments, respectively. Inside them, agents can choose &lt;A&lt;,&lt;B&lt;,&lt;C&lt; as operands. After two operands are chosen, the step procedure updates the latent state z when necessary, routes back to the language environment, and returns the swap or comparison result as a plain-text observation.
@@ -359,7 +365,6 @@
         Description.
        </h2>
     </div>
-
   </div>
 </section>
 
@@ -369,18 +374,15 @@
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <!-- TODO: Replace with your research result images -->
         <img src="static/images/calc_bench_3b.png" alt="Calc-Bench — Qwen-2.5 3B" loading="lazy"/>
         <p class="has-text-grey is-size-7 mt-1">
           <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
         </p>
-        <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text-centered">
           description.
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
         <img src="static/images/calc_bench_7b.png" alt="Calc-Bench — Qwen-2.5 7B" loading="lazy"/>
         <p class="has-text-grey is-size-7 mt-1">
           <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
@@ -398,7 +400,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-vcentered is-variable is-3">
-      
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth is-narrow">
           <caption class="has-text-weight-semibold">
