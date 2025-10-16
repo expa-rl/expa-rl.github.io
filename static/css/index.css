@@ -38,6 +38,83 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.small-image {
+    width: auto;
+    height: 40px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-logo {
+    width: auto;
+    height: 50px;
+    margin-top: -7px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-right: 5px; /* to give some space between the image and the text */
+}
+.small-image-55 {
+    width: auto;
+    height: 55px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-50 {
+    width: auto;
+    height: 50px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-45 {
+    width: auto;
+    height: 45px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-60 {
+    width: auto;
+    height: 60px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-35 {
+    width: auto;
+    height: 35px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-30 {
+    width: auto;
+    height: 30px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+
+.small-image-20 {
+    width: auto;
+    height: 20px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
+.small-image-25 {
+    width: auto;
+    height: 25px;
+    vertical-align: middle; /* to align the image with the text */
+    margin-top: 10px;
+    margin-right: 12px; /* to give some space between the image and the text */
+}
 
 /* Modern Button Styles */
 .button {
