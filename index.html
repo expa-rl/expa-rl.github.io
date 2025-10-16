@@ -60,8 +60,8 @@
   <title>EARL</title>
   
   <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/images/EARL.png">
+  <link rel="apple-touch-icon" href="static/images/EARL.png">
   
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -385,7 +385,6 @@
       <!-- right: text -->
       <div class="column is-6">
         <h2 class="title is-3"><span class="dvima">base mdp</span></h2>
-        <div class="content is-size-5">
           <p>
             In existing works, LLM is confined to its vocabulary space V for both reasoning and interaction with external environments, where the latter requires an external parser to detect special patterns.
           </p>
@@ -397,7 +396,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-vcentered is-variable is-6">
-      
       <div class="column is-6">
         <figure class="image">
           <video class="is-fullwidth" autoplay muted loop playsinline controls>
@@ -408,7 +406,6 @@
 
       <div class="column is-6">
         <h2 class="title is-3"><span class="dvima">earl mdp</span></h2>
-        <div class="content is-size-5">
           <p>
             We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
           </p>
@@ -421,7 +418,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">text-4</span></h2>
-    <div class="content is-size-5">
       <p>
         An example rollout with ExpA. Here, &lt;sw&lt; and &lt;cp&lt; route to the swap and compare environments, respectively. Inside them, agents can choose &lt;A&lt;,&lt;B&lt;,&lt;C&lt; as operands. After two operands are chosen, the step procedure updates the latent state z when necessary, routes back to the language environment, and returns the swap or comparison result as a plain-text observation.
       </p>
@@ -466,17 +462,10 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="column is-4-desktop is-12-tablet">
-      <h2 class="title is-3"><span class="dvima">Contingent Learning</span></h2>
-      <div class="content is-size-5">
-        <p>
-          This table summarizes contingent learning dynamics in the Countdown task—how different training setups express intermediate feedback and plan transitions in natural language as each step depends on prior actions and outcomes. Methods with weaker guidance tend to reuse a small set of phrases, limiting exploration. Counterfactual optimization broadens the repertoire, yielding more options for moving between steps. EARL shows the strongest usage and diversity: it frequently employs conditional cues such as “not close,” “close to,” and “far from” to diagnose progress and steer the next action—either tightening the current plan or pivoting to a new one. The takeaway is that planning quality improves when the model has richer, more precise transition phrases to articulate state and choose the next move, leading to steadier refinement and more controlled strategy shifts.
-        </p>
-      </div>
-    </div>
-    
-    
-    
+    <h2 class="title is-3"><span class="dvima">Contingent Learning</span></h2>
+      <p>
+        This table summarizes contingent learning dynamics in the Countdown task—how different training setups express intermediate feedback and plan transitions in natural language as each step depends on prior actions and outcomes. Methods with weaker guidance tend to reuse a small set of phrases, limiting exploration. Counterfactual optimization broadens the repertoire, yielding more options for moving between steps. EARL shows the strongest usage and diversity: it frequently employs conditional cues such as “not close,” “close to,” and “far from” to diagnose progress and steer the next action—either tightening the current plan or pivoting to a new one. The takeaway is that planning quality improves when the model has richer, more precise transition phrases to articulate state and choose the next move, leading to steadier refinement and more controlled strategy shifts.
+      </p>
     
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth is-narrow">
@@ -585,8 +574,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">EARL on Sort-4</span></h2>
-    
-    <div class="content is-size-5">
       <p>
         We visualize the deterministic decision tree induced by EARL on Sort-4 inputs under greedy decoding. Each internal node denotes a binary comparison, and each leaf specifies the sequence of swaps that produces a sorted output. The left panel shows the EARL* pseudocode; the right panel presents the corresponding decision process.
       </p>
