@@ -362,58 +362,18 @@
     <div class="container is-max-desktop">
         <div class="rows">
             <div class="rows is-centered ">
-                <h2 class="title is-3"><span class="dvima">Abstract</span></h2>
-                <p>Large Language Models (LLMs) are powerful reasoners in natural language, but their actions are typically confined to outputting vocabulary tokens. As a result, interactions with external environments—such as symbolic operators or simulators—must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization. On tasks requiring multi-turn interactions and contingent planning, EARL outperforms strong baselines with vocabulary-constrained actions. It performs robustly across calculator-based multi-task learning and, in the partially observed sorting problem, achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.</p>
+                <p>
+                  TL;DR: We propose a new paradigm for post-training LLMs with external environments to incentivize reasoning and agentic behavior, showing promising results.
+                </p>
+                <p>
+                  Currently, interactions with external environments must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. It shows promising results in 3 key areas.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-vcentered is-variable is-6">
-      
-      <!-- left: video -->
-      <div class="column is-6">
-        <figure class="image">
-          <video class="is-fullwidth" autoplay muted loop playsinline controls>
-            <source src="static/videos/base_mdp.mp4" type="video/mp4">
-          </video>
-        </figure>
-      </div>
 
-      <!-- right: text -->
-      <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">base mdp</span></h2>
-          <p>
-            In existing works, LLM is confined to its vocabulary space V for both reasoning and interaction with external environments, where the latter requires an external parser to detect special patterns.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-vcentered is-variable is-6">
-      <div class="column is-6">
-        <figure class="image">
-          <video class="is-fullwidth" autoplay muted loop playsinline controls>
-            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
-          </video>
-        </figure>
-      </div>
-
-      <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">earl mdp</span></h2>
-          <p>
-            We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -430,42 +390,23 @@
   </div>
 </section>
 
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <img src="static/images/calc_bench_countdown.png" alt="Calc-Bench — Qwen-2.5 3B" loading="lazy"/>
-        <p class="has-text-grey is-size-7 mt-1">
-          <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
-        </p>
-        <h2 class="subtitle has-text-centered">
-          description.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/calc_bench_gsm8k.png" alt="Calc-Bench — Qwen-2.5 7B" loading="lazy"/>
-        <p class="has-text-grey is-size-7 mt-1">
-          <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
-        </p>
-        <h2 class="subtitle has-text-centered">
-          description.
-        </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3"><span class="dvima">Contingent Learning</span></h2>
+    <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
       <p>
-        This table summarizes contingent learning dynamics in the Countdown task—how different training setups express intermediate feedback and plan transitions in natural language as each step depends on prior actions and outcomes. Methods with weaker guidance tend to reuse a small set of phrases, limiting exploration. Counterfactual optimization broadens the repertoire, yielding more options for moving between steps. EARL shows the strongest usage and diversity: it frequently employs conditional cues such as “not close,” “close to,” and “far from” to diagnose progress and steer the next action—either tightening the current plan or pivoting to a new one. The takeaway is that planning quality improves when the model has richer, more precise transition phrases to articulate state and choose the next move, leading to steadier refinement and more controlled strategy shifts.
+        Many challenging reasoning tasks not only demand multi-turn interactions with external environments, but also require agents to adapt its actions on the fly based on intermediate observations from interactions. In our Countdown task (examples below), agents need to use an external calculator to find the solution. Moreover, each problem admits up to 7,680 unique combinations, forcing the agent to reason efficiently by adjusting its strategy based on intermediate outcomes (e.g., aggressively adjusting strategy when far from the target). Agents with ExpA greatly outperforms strong baselines with vocabulary-constrained actions (Figure xx), demonstrating stronger planning capabilities (Figure xx).
       </p>
-    
+
+    <div class="item">
+      <img src="static/images/calc_bench_countdown.png" alt="Calc-Bench — Qwen-2.5 3B" loading="lazy"/>
+      <p class="has-text-grey is-size-7 mt-1">
+        <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
+      </p>
+      <h2 class="subtitle has-text-centered">
+        description.
+      </h2>
+    </div>
+
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth is-narrow">
         <caption class="has-text-weight-semibold">
@@ -568,9 +509,15 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3"><span class="dvima">EARL on Sort-4</span></h2>
+    <h2 class="title is-3"><span class="dvima">2. Partially Observed Environment</span></h2>
       <p>
-        We visualize the deterministic decision tree induced by EARL on Sort-4 inputs under greedy decoding. Each internal node denotes a binary comparison, and each leaf specifies the sequence of swaps that produces a sorted output. The left panel shows the EARL* pseudocode; the right panel presents the corresponding decision process.
+        In agentic settings, LLMs can extend their reasoning into external environments by mapping language instructions into operations such as API calls or robotic control, allowing them to solve tasks in the digital or physical worlds. Such scenarios are typically partially observed, where the agent must interact with the environments to access their hidden states.
+      </p>
+      <p>
+        In this work, we train agents to order a set of hidden numbers using compare and swap environments, e.g., “compare A, B” reveals their relation, while “swap A, B” updates the hidden state. This task is challenging, as the agent must plan contingently from comparison outcomes, reason precisely over first-order relations, and manipulate hidden states through interactions rather than text output, which makes this a realistic testbed for interactive decision-making situations such as embodied AI.
+      </p>
+      <p>
+        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.
       </p>
 
     <figure class="image">
@@ -578,14 +525,70 @@
         <source src="static/videos/SORT.mp4" type="video/mp4">
       </video>
     </figure>
+  </div>
+</section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><span class="dvima">3. Readiness for Zero-RL</span></h2>
+      <p>
+        To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
+      </p>
+
+    <figure class="image">
+      <video class="is-fullwidth" autoplay muted loop playsinline controls>
+        <source src="static/videos/SORT.mp4" type="video/mp4">
+      </video>
+    </figure>
   </div>
 </section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      
+      <!-- left: video -->
+      <div class="column is-6">
+        <figure class="image">
+          <video class="is-fullwidth" autoplay muted loop playsinline controls>
+            <source src="static/videos/base_mdp.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
 
+      <!-- right: text -->
+      <div class="column is-6">
+        <h2 class="title is-3"><span class="dvima">base mdp</span></h2>
+          <p>
+            In existing works, LLM is confined to its vocabulary space V for both reasoning and interaction with external environments, where the latter requires an external parser to detect special patterns.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      <div class="column is-6">
+        <figure class="image">
+          <video class="is-fullwidth" autoplay muted loop playsinline controls>
+            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
 
-
+      <div class="column is-6">
+        <h2 class="title is-3"><span class="dvima">earl mdp</span></h2>
+          <p>
+            We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
