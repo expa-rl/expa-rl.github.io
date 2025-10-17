@@ -20,35 +20,19 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
+  <meta property="og:site_name" content="Chalmers & SAP & ZJU">
   <!-- TODO: Same as paper title above -->
   <meta property="og:title" content="EARL">
   <!-- TODO: Same as description above -->
   <meta property="og:description" content="Expanding the Action Space of LLMs to Reason Beyond Language">
   <!-- TODO: Replace with your actual website URL -->
   <meta property="og:url" content="https://expa-rl.github.io/">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
   <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
   <meta property="article:author" content="Zhongqi Yue, Weishi Wang, Yundaichuan Zhan, Juncheng Li, Daniel Dahlmeier, Fredrik D. Johansson">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="KEYWORD1">
   <meta property="article:tag" content="KEYWORD2">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,9 +40,7 @@
   <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-
   <title>EARL</title>
-  
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/EARL.png">
   <link rel="apple-touch-icon" href="static/images/EARL.png">
@@ -368,7 +350,7 @@
                   <strong>TL;DR:</strong> We propose a new paradigm for post-training LLMs with external environments to incentivize reasoning and agentic behavior, showing promising results.
                 </p>
                 <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-                  Currently, interactions with external environments must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. It shows promising results in 3 key areas.
+                  Currently, interactions with external environments must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (<strong>ExpA</strong>), beyond the vocabulary. We illustrate how ExpA differs from traditional paradigm later. ExpA leads to promising results in 3 key areas.
                 </p>
             </div>
         </div>
@@ -382,24 +364,19 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Many challenging reasoning tasks not only demand multi-turn interactions with external environments, but also require agents to adapt its actions on the fly based on intermediate observations from interactions. In our Countdown task (examples below), agents need to use an external calculator to find the solution. Moreover, each problem admits up to 7,680 unique combinations, forcing the agent to reason efficiently by adjusting its strategy based on intermediate outcomes (e.g., aggressively adjusting strategy when far from the target). Agents with ExpA greatly outperforms strong baselines with vocabulary-constrained actions (Figure xx), demonstrating stronger planning capabilities (Figure xx).
+        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong>adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (Figure 1), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (Figure 1). Qualitative analysis (Table 1) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
       </p>
 
     <div class="item">
-      <img src="static/images/calc_bench_countdown.png" alt="Countdown BAR PLOT" loading="lazy"/>
-      <p class="has-text-grey is-size-7 mt-1">
-        <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
-      </p>
+      <img src="static/images/countdown.png" loading="lazy"/>
       <h2 class="subtitle has-text-centered";margin-bottom:1rem;>
-        Description.
+        <strong>Figure 1.</strong> Exact Match (%) comparison on the Countdown task. We fine-tune <strong>Qwen2.5-3B</strong> and <strong>Qwen2.5-7B</strong> on a multi-task benchmark that includes Countdown as a sub-task, and evaluate them on a held-out Countdown test set. Full benchmark results are provided in the paper.
       </h2>
     </div>
 
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth is-narrow">
-        <caption class="has-text-weight-semibold">
-          PLANNING KEYWORD FIGURE
-        </caption>
+        
         <thead>
           <tr>
             <th>Phrase</th>
@@ -490,6 +467,9 @@
             <th class="num">3,926</th>
           </tr>
         </tfoot>
+        <caption class="has-text-weight-semibold">
+          <strong>Table 1.</strong> Number of occurrences of planning-related keywords in testing.
+        </caption>
       </table>
     </div>
     </div>
@@ -505,7 +485,7 @@
         In this work, we train agents to order a set of hidden numbers using compare and swap environments, e.g., “compare A, B” reveals their relation, while “swap A, B” updates the hidden state. This task is challenging, as the agent must plan contingently from comparison outcomes, reason precisely over first-order relations, and manipulate hidden states through interactions rather than text output, which makes this a realistic testbed for interactive decision-making situations such as embodied AI.
       </p>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.
+        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong>with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (Figure 2).
       </p>
 
     <figure class="image">
@@ -513,6 +493,9 @@
         <source src="static/videos/SORT.mp4" type="video/mp4">
       </video>
     </figure>
+    <p>
+      <strong>Figure 2.</strong> An example for reasoning with expanded actions.
+    </p>
   </div>
 </section>
 
@@ -520,14 +503,17 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">3. Readiness for Zero-RL</span></h2>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
+        To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (<strong>EARL</strong>) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
       </p>
   </div>
 </section>
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3"><span class="dvima">Details</span></h2>
+    <h2 class="title is-3"><span class="dvima">Approach</span></h2>
+    <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      We propose a fundamental shift from the language-only paradigm for interacting with environments (Figure 3). Our aim is threefold: (1) to decouple environment interactions from language reasoning, (2) to enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control, (3) to fully support RL on base models, i.e., Zero-RL, without requiring supervised tool-call data or adherence to predefined language patterns. We propose to expand the LLM’s action space for interactions (Figure 4), and derive a training strategy to explore these interactions while supporting Zero-RL (Figure 5).
+    </p>
   </div>
 </section>
 
@@ -542,6 +528,9 @@
             <source src="static/videos/base_mdp.mp4" type="video/mp4">
           </video>
         </figure>
+        <p>
+          <strong>Figure 3.</strong> A simple example for reasoning with vocabulary-based interactions.
+        </p>
       </div>
 
       <!-- right: text -->
@@ -564,12 +553,15 @@
             <source src="static/videos/earl_mdp.mp4" type="video/mp4">
           </video>
         </figure>
+        <p>
+          <strong>Figure 4.</strong> An example for reasoning with expanded actions.
+        </p>
       </div>
 
       <div class="column is-6">
         <h2 class="title is-4"><span class="dvima">Interactions by Expanded Actions</span></h2>
           <p>
-            We decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
+            We decouple environment interactions from language by internalizing them in an Expanded Action space (<strong>ExpA</strong>), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
           </p>
         </div>
       </div>
@@ -583,15 +575,18 @@
       <div class="column is-6">
         <figure class="image">
           <video class="is-fullwidth" autoplay muted loop playsinline controls>
-            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
+            <source src="static/videos/counterfactual.mp4" type="video/mp4">
           </video>
         </figure>
+        <p>
+          <strong>Figure 5.</strong> An example of counterfactual policy optimization, which involves both factual and counterfactual rollouts.
+        </p>
       </div>
 
       <div class="column is-6">
         <h2 class="title is-4"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
           <p>
-            To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (EARL). During training, for each rollout, we construct a counterfactual trajectory by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routing description token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
+            To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (<strong>ExpA</strong>). During training, for each (factual) rollout, we construct a counterfactual rollout by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routingdescription token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
           </p>
         </div>
       </div>
