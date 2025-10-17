@@ -364,10 +364,10 @@
     <div class="container is-max-desktop">
         <div class="rows">
             <div class="rows is-centered ">
-                <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+                <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
                   <strong>TL;DR:</strong> We propose a new paradigm for post-training LLMs with external environments to incentivize reasoning and agentic behavior, showing promising results.
                 </p>
-                <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+                <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
                   Currently, interactions with external environments must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. It shows promising results in 3 key areas.
                 </p>
             </div>
@@ -381,7 +381,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
-      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
         Many challenging reasoning tasks not only demand multi-turn interactions with external environments, but also require agents to adapt its actions on the fly based on intermediate observations from interactions. In our Countdown task (examples below), agents need to use an external calculator to find the solution. Moreover, each problem admits up to 7,680 unique combinations, forcing the agent to reason efficiently by adjusting its strategy based on intermediate outcomes (e.g., aggressively adjusting strategy when far from the target). Agents with ExpA greatly outperforms strong baselines with vocabulary-constrained actions (Figure xx), demonstrating stronger planning capabilities (Figure xx).
       </p>
 
@@ -495,13 +495,13 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">2. Partially Observed Environment</span></h2>
-      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
         In agentic settings, LLMs can extend their reasoning into external environments by mapping language instructions into operations such as API calls or robotic control, allowing them to solve tasks in the digital or physical worlds. Such scenarios are typically partially observed, where the agent must interact with the environments to access their hidden states.
       </p>
-      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
         In this work, we train agents to order a set of hidden numbers using compare and swap environments, e.g., “compare A, B” reveals their relation, while “swap A, B” updates the hidden state. This task is challenging, as the agent must plan contingently from comparison outcomes, reason precisely over first-order relations, and manipulate hidden states through interactions rather than text output, which makes this a realistic testbed for interactive decision-making situations such as embodied AI.
       </p>
-      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
         Interestingly, agents with ExpA achieves perfect Sort-4 accuracy while self-discovering an efficient algorithm competitive with classical designs.
       </p>
 
@@ -516,7 +516,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">3. Readiness for Zero-RL</span></h2>
-      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      <p style="font-size: 115; margin-bottom:1rem; line-height:1.6;">
         To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
       </p>
   </div>
