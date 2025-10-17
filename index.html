@@ -362,10 +362,10 @@
     <div class="container is-max-desktop">
         <div class="rows">
             <div class="rows is-centered ">
-                <p style="font-size: 125%">
-                  TL;DR: We propose a new paradigm for post-training LLMs with external environments to incentivize reasoning and agentic behavior, showing promising results.
+                <p style="font-size: 125%; margin-bottom:1rem; line-height:1.6;">
+                  <strong>TL;DR:</strong> We propose a new paradigm for post-training LLMs with external environments to incentivize reasoning and agentic behavior, showing promising results.
                 </p>
-                <p style="font-size: 125%">
+                <p style="font-size: 125%; margin-bottom:1rem; line-height:1.6;">
                   Currently, interactions with external environments must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. It shows promising results in 3 key areas.
                 </p>
             </div>
@@ -384,19 +384,16 @@
       </p>
 
     <div class="item">
-      <img src="static/images/calc_bench_countdown.png" alt="Calc-Bench — Qwen-2.5 3B" loading="lazy"/>
+      <img src="static/images/calc_bench_countdown.png" alt="Countdown BAR PLOT" loading="lazy"/>
       <p class="has-text-grey is-size-7 mt-1">
         <sup>*</sup> GSM8K* denotes the subset used in Calc-Bench.
       </p>
-      <h2 class="subtitle has-text-centered">
-        description.
-      </h2>
     </div>
 
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth is-narrow">
         <caption class="has-text-weight-semibold">
-          The number of using planning phrases across different training strategies.
+          PLANNING KEYWORD FIGURE
         </caption>
         <thead>
           <tr>
@@ -520,8 +517,6 @@
       <p>
         To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (EARL) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
       </p>
-
-
   </div>
 </section>
 
@@ -541,9 +536,9 @@
 
       <!-- right: text -->
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">base mdp</span></h2>
+        <h2 class="title is-3"><span class="dvima">Interactions by Vocabulary</span></h2>
           <p>
-            In existing works, LLM is confined to its vocabulary space V for both reasoning and interaction with external environments, where the latter requires an external parser to detect special patterns.
+            In current works, LLMs can be viewed as agents acting in decision processes with an action space restricted to vocabulary. Interactions with external environments are mediated through a parser, which translates predefined text patterns (e.g., tool tags or structured JSON) into environment-specific actions, routed to the corresponding environment. The environment executes the actions and returns a plain-text observation, which is appended to the model's context.
           </p>
         </div>
       </div>
@@ -562,9 +557,9 @@
       </div>
 
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">earl mdp</span></h2>
+        <h2 class="title is-3"><span class="dvima">Interactions by an Expanded Action Space</span></h2>
           <p>
-            We decouple environment interactions from language by internalizing them as an Expanded Action space (ExpA) E beyond vocabulary.
+            We decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
           </p>
         </div>
       </div>
@@ -572,7 +567,27 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      <div class="column is-6">
+        <figure class="image">
+          <video class="is-fullwidth" autoplay muted loop playsinline controls>
+            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
 
+      <div class="column is-6">
+        <h2 class="title is-3"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
+          <p>
+            To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (EARL). During training, for each rollout, we construct a counterfactual trajectory by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routing description token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
