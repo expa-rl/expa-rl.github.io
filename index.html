@@ -536,7 +536,7 @@
 
       <!-- right: text -->
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">Interactions by Vocabulary</span></h2>
+        <h2 class="title is-4"><span class="dvima">Interactions by Vocabulary</span></h2>
           <p>
             In current works, LLMs can be viewed as agents acting in decision processes with an action space restricted to vocabulary. Interactions with external environments are mediated through a parser, which translates predefined text patterns (e.g., tool tags or structured JSON) into environment-specific actions, routed to the corresponding environment. The environment executes the actions and returns a plain-text observation, which is appended to the model's context.
           </p>
@@ -557,7 +557,7 @@
       </div>
 
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">Interactions by an Expanded Action Space</span></h2>
+        <h2 class="title is-4"><span class="dvima">Interactions by an Expanded Action Space</span></h2>
           <p>
             We decouple environment interactions from language by internalizing them in an Expanded Action space (ExpA), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
           </p>
@@ -579,7 +579,7 @@
       </div>
 
       <div class="column is-6">
-        <h2 class="title is-3"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
+        <h2 class="title is-4"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
           <p>
             To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (EARL). During training, for each rollout, we construct a counterfactual trajectory by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routing description token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
           </p>
