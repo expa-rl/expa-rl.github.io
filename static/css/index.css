@@ -916,7 +916,7 @@ a:focus {
   text-align: left;
   color: var(--text-secondary);
   background: 
-    linear-gradient(0deg, rgba(0,0,0,.06), rgba(0,0,0,.06)), /* 叠加的“加深层” */
+    linear-gradient(0deg, rgba(0,0,0,.1), rgba(0,0,0,.1)), /* 叠加的“加深层” */
     var(--gradient-subtle);                                  /* 你现有的渐变 */
   border-bottom: 1px solid var(--border-color);
   font-weight: 600;
