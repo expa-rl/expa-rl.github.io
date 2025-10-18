@@ -521,9 +521,7 @@
       We propose to expand the LLM’s action space for interactions (Figure 4), and derive a training strategy to explore these interactions while supporting Zero-RL (Figure 5).
     </p>
 
-
     <div class="columns is-vcentered is-variable is-6">
-      
       <!-- left: video -->
       <div class="column is-6">
         <figure class="image">
@@ -535,7 +533,6 @@
           <strong>Figure 3.</strong> A simple example for reasoning with vocabulary-based interactions.
         </p>
       </div>
-
       <!-- right: text -->
       <div class="column is-6">
         <h2 class="title is-4"><span class="dvima">Interactions by Vocabulary</span></h2>
@@ -546,52 +543,45 @@
       </div>
     </div>
   </div>
-</section>
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-vcentered is-variable is-6">
-      <div class="column is-6">
-        <figure class="image">
-          <video class="is-fullwidth" autoplay muted loop playsinline controls>
-            <source src="static/videos/earl_mdp.mp4" type="video/mp4">
-          </video>
-        </figure>
-        <p>
-          <strong>Figure 4.</strong> An example for reasoning with expanded actions.
-        </p>
-      </div>
 
-      <div class="column is-6">
-        <h2 class="title is-4"><span class="dvima">Interactions by Expanded Actions</span></h2>
-          <p>
-            We decouple environment interactions from language by internalizing them in an Expanded Action space (<strong>ExpA</strong>), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
-          </p>
-        </div>
+  <div class="columns is-vcentered is-variable is-6">
+    <div class="column is-6">
+      <figure class="image">
+        <video class="is-fullwidth" autoplay muted loop playsinline controls>
+          <source src="static/videos/earl_mdp.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <p>
+        <strong>Figure 4.</strong> An example for reasoning with expanded actions.
+      </p>
+    </div>
+
+    <div class="column is-6">
+      <h2 class="title is-4"><span class="dvima">Interactions by Expanded Actions</span></h2>
+        <p>
+          We decouple environment interactions from language by internalizing them in an Expanded Action space (<strong>ExpA</strong>), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
+        </p>
       </div>
     </div>
   </div>
-</section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-vcentered is-variable is-6">
-      <div class="column is-6">
-        <figure class="image">
-          <video class="is-fullwidth" autoplay muted loop playsinline controls>
-            <source src="static/videos/counterfactual.mp4" type="video/mp4">
-          </video>
-        </figure>
+  <div class="columns is-vcentered is-variable is-6">
+    <div class="column is-6">
+      <figure class="image">
+        <video class="is-fullwidth" autoplay muted loop playsinline controls>
+          <source src="static/videos/counterfactual.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <p>
+        <strong>Figure 5.</strong> An example of counterfactual policy optimization, which involves both factual and counterfactual rollouts.
+      </p>
+    </div>
+
+    <div class="column is-6">
+      <h2 class="title is-4"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
         <p>
-          <strong>Figure 5.</strong> An example of counterfactual policy optimization, which involves both factual and counterfactual rollouts.
+          To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (<strong>ExpA</strong>). During training, for each (factual) rollout, we construct a counterfactual rollout by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routingdescription token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
         </p>
-      </div>
-
-      <div class="column is-6">
-        <h2 class="title is-4"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
-          <p>
-            To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (<strong>ExpA</strong>). During training, for each (factual) rollout, we construct a counterfactual rollout by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routingdescription token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
-          </p>
-        </div>
       </div>
     </div>
   </div>
