@@ -133,6 +133,15 @@
         margin-right: 12px; /* to give some space between the image and the text */
     }
     .table .num { text-align: right; white-space: nowrap; }
+    a {
+      color: inherit;                 /* 继承父元素颜色，不使用蓝色 */
+      text-decoration: underline;     /* 显示下划线 */
+      text-underline-offset: 3px;     /* 下划线与文字的间距更美观 */
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px; /* 鼠标悬停时稍微加粗下划线 */
+    }
   </style>
 
   <!-- Non-critical CSS - Load asynchronously -->
