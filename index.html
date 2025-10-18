@@ -77,24 +77,6 @@
       text-decoration-thickness: 2px;  /* 鼠标悬停时略微加粗下划线 */
       color: var(--primary-color);     /* 悬停时可轻微变主题色（可选） */
     }
-    /* BibTeX 专用：去滚动条、允许自动换行、收紧内边距 */
-    #BibTeX pre {
-      white-space: pre-wrap !important;    /* 保留换行，同时可自动换行 */
-      word-break: break-word !important;   /* 超长词也能断行 */
-      overflow: hidden !important;         /* 覆盖 Bulma 的 overflow:auto */
-      padding: 0.25rem 0.25rem !important;  /* 收紧文字与边框距离 */
-      margin: 0 !important;                /* 去掉多余外边距 */
-    }
-
-    /* 去掉内层 code 的底色与额外间距，避免“套娃”显得更空 */
-    #BibTeX pre code {
-      background: transparent !important;
-      display: block;
-      padding: 0 !important;
-      margin: 0 !important;
-      white-space: inherit;                /* 继承 pre-wrap 行为 */
-      font-size: 0.95em;                   /* 可选：字稍紧凑 */
-    }
   </style>
 
   <!-- Non-critical CSS - Load asynchronously -->
@@ -505,7 +487,7 @@
       </button>
     </div>
     <pre id="bibtex-code">
-      <code>
+    <code>
     @misc{2510.07581,
     Author = {Zhongqi Yue and Weishi Wang and Yundaichuan Zhan and Juncheng Li and Daniel Dahlmeier and Fredrik D. Johansson},
     Title = {Expanding the Action Space of LLMs to Reason Beyond Language},
