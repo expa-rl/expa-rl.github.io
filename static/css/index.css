@@ -451,7 +451,7 @@ pre {
   white-space: pre-wrap !important;    /* 保留换行，同时可自动换行 */
   word-break: break-word !important;   /* 超长词也能断行 */
   overflow: hidden !important;      
-  padding: 0.25rem 0.25rem !important;  /* 收紧文字与边框距离 */
+  padding: 0rem 0.25rem !important;  /* 收紧文字与边框距离 */
   margin: 0rem !important;                /* 去掉多余外边距 */
 
   background: var(--background-accent) !important;
