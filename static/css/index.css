@@ -831,3 +831,46 @@ a:focus {
 
 
 
+.data-table {
+    border-collapse: separate;
+    /* border-spacing: 2.5px; */
+    margin: 0 auto;
+    font-size: 12px;
+    min-width: 100%;
+    /* width: max-content; */
+    width: 100%;
+    line-height: 1.25;
+    border-collapse: separate;
+}
+
+.data-table td {
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.data-table td, .data-table th {
+    padding: 0.25em 0.25em;
+}
+
+.tb-hdr {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 600px) {
+    .data-table {
+        font-size: 0.8em;
+    }
+    
+    .data-table td, .data-table th {
+        padding: 0.2em 0.4em;
+        font-size: 0.8em;
+    }
+    
+    iframe {
+        width: 99%;
+    }
+}
