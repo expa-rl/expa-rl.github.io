@@ -49,8 +49,6 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <style>
-    .title.is-3::after { content: none !important; }
-    .title.is-3 { padding-bottom: 0 !important; }
     .small-image {
     width: auto;
     height: 40px;
@@ -487,7 +485,7 @@
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
         Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong>with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (Figure 2).
       </p>
-
+      
     <figure class="image">
       <video class="is-fullwidth" autoplay muted loop playsinline controls>
         <source src="static/videos/SORT.mp4" type="video/mp4">
@@ -505,8 +503,6 @@
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
         To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (<strong>EARL</strong>) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
       </p>
-  </div>
-  <div class="container is-max-desktop">
     <h2 class="title is-4"><span class="dvima">Approach</span></h2>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
       We propose a fundamental shift from the language-only paradigm for interacting with environments (Figure 3). Our aim is threefold: 
@@ -519,7 +515,8 @@
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
       We propose to expand the LLM’s action space for interactions (Figure 4), and derive a training strategy to explore these interactions while supporting Zero-RL (Figure 5).
     </p>
-
+  </div>
+  <div class="container is-max-desktop">
     <div class="columns is-vcentered is-variable is-6">
       <!-- left: video -->
       <div class="column is-6">
@@ -731,19 +728,16 @@
 </section>
 <!--End BibTex citation -->
 
-
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
       </div>
     </div>
