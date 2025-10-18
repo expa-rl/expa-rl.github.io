@@ -396,7 +396,7 @@ body {
   content: none !important;
 }
 
-.title.is-3::after {
+/* .title.is-3::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -407,7 +407,7 @@ body {
   background: var(--gradient-accent);
   border-radius: 2px;
   padding-bottom: 0 !important;
-}
+} */
 
 /* Content Improvements */
 .content.has-text-justified {
