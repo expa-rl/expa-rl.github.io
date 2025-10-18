@@ -511,13 +511,17 @@
     <h2 class="title is-4"><span class="dvima">Approach</span></h2>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
       We propose a fundamental shift from the language-only paradigm for interacting with environments (Figure 3). Our aim is threefold: 
-      <ul style="font-size: 120%; list-style-type:none; padding-left:0;">
-        <li style="margin-left:1.5em;"> (1) to decouple environment interactions from language reasoning</li>
-        <li style="margin-left:1.5em;"> (2) to enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.</li>
-        <li style="margin-left:1.5em;"> (3) to fully support RL on base models, i.e., Zero-RL, without requiring supervised tool-call data or adherence to predefined language patterns.</li>
-      </ul>
+    </p>  
+    <ul style="font-size: 120%;">
+        <li> Decouple environment interactions from language reasoning</li>
+        <li> Enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.</li>
+        <li> Fully support RL on base models, i.e., Zero-RL, without requiring supervised tool-call data or adherence to predefined language patterns.</li>
+    </ul>
+    <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
       We propose to expand the LLM’s action space for interactions (Figure 4), and derive a training strategy to explore these interactions while supporting Zero-RL (Figure 5).
     </p>
+
+
     <div class="columns is-vcentered is-variable is-6">
       
       <!-- left: video -->
