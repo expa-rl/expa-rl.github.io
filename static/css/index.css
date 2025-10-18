@@ -449,7 +449,6 @@ pre {
   background: var(--background-accent) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: var(--border-radius) !important;
-  padding: 1.5rem !important;
   font-size: 0.9rem !important;
   box-shadow: var(--shadow-sm);
 }
