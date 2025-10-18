@@ -462,6 +462,7 @@ pre {
 }
 
 code {
+  padding: 10rem;
   display: block;
   background: var(--background-accent) !important;
   color: var(--text-primary) !important;
