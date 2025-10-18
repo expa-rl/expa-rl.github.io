@@ -133,14 +133,15 @@
         margin-right: 12px; /* to give some space between the image and the text */
     }
     .table .num { text-align: right; white-space: nowrap; }
-    a {
-      color: inherit;                 /* 继承父元素颜色，不使用蓝色 */
-      text-decoration: underline;     /* 显示下划线 */
-      text-underline-offset: 3px;     /* 下划线与文字的间距更美观 */
+    .ref-link {
+      color: inherit;                  /* 保持文字颜色一致 */
+      text-decoration: underline;      /* 添加下划线 */
+      text-underline-offset: 3px;      /* 调整下划线位置 */
+      transition: all 0.2s ease-in-out;
     }
-
-    a:hover {
-      text-decoration-thickness: 2px; /* 鼠标悬停时稍微加粗下划线 */
+    .ref-link:hover {
+      text-decoration-thickness: 2px;  /* 鼠标悬停时略微加粗下划线 */
+      color: var(--primary-color);     /* 悬停时可轻微变主题色（可选） */
     }
   </style>
 
@@ -377,7 +378,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong class="text-highlight">adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (<a href="#figure1">Figure 1</a>), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1">Figure 1</a>). Qualitative analysis (<a href="#table1">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
+        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong class="text-highlight">adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (<a href="#figure1" class="ref-link">Figure 1</a>), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1" class="ref-link">Figure 1</a>). Qualitative analysis (<a href="#table1" class="ref-link">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
       </p>
       
     <div class="item" id="figure1">
@@ -499,7 +500,7 @@
         In this work, we train agents to order a set of hidden numbers using compare and swap environments, e.g., “compare A, B” reveals their relation, while “swap A, B” updates the hidden state. This task is challenging, as the agent must plan contingently from comparison outcomes, reason precisely over first-order relations, and manipulate hidden states through interactions rather than text output, which makes this a realistic testbed for interactive decision-making situations such as embodied AI.
       </p>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong>with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (<a href="#figure2">Figure 2</a>).
+        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong>with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (<a href="#figure2" class="ref-link">Figure 2</a>).
       </p>
       
     <figure class="image" id="figure2">
@@ -521,7 +522,7 @@
       </p>
     <h2 class="title is-4"><span class="dvima">Approach</span></h2>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-      We propose a fundamental shift from the language-only paradigm for interacting with environments (<a href="#figure3">Figure 3</a>). Our aim is threefold: 
+      We propose a fundamental shift from the language-only paradigm for interacting with environments (<a href="#figure3" class="ref-link">Figure 3</a>). Our aim is threefold: 
     </p>  
     <ul style="font-size: 120%;margin-left:1rem; line-height:1.6; list-style-type: disc;">
         <li> Decouple environment interactions from language reasoning</li>
@@ -529,7 +530,7 @@
         <li> Fully support RL on base models, i.e., Zero-RL, without requiring supervised tool-call data or adherence to predefined language patterns.</li>
     </ul>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-      We propose to expand the LLM’s action space for interactions (<a href="#figure4">Figure 4</a>), and derive a training strategy to explore these interactions while supporting Zero-RL (<a href="#figure5">Figure 5</a>).
+      We propose to expand the LLM’s action space for interactions (<a href="#figure4" class="ref-link">Figure 4</a>), and derive a training strategy to explore these interactions while supporting Zero-RL (<a href="#figure5" class="ref-link">Figure 5</a>).
     </p>
   </div>
   <div class="container is-max-desktop">
