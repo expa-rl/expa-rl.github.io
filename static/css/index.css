@@ -826,3 +826,104 @@ a:focus {
     box-shadow: none !important;
   }
 }
+/* --- Table Card Wrapper --- */
+.table-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;                /* 圆角不被表格溢出破坏 */
+  background: var(--background-primary);
+}
+
+/* --- Container 支持横向滚动（小屏不挤爆）--- */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- 表格基础间距与边框 --- */
+.table.is-enhanced {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;               /* 去掉单元格之间的缝 */
+  font-size: 0.95rem;
+}
+.table.is-enhanced th,
+.table.is-enhanced td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-primary);
+}
+
+/* --- 表头：粘性 + 渐变 + 阴影 --- */
+.table.is-enhanced thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--gradient-subtle);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-transform: none;
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+
+/* --- 首列固定（长表行横向滚动时更易读）--- */
+.table.is-enhanced tbody th:first-child,
+.table.is-enhanced tbody td:first-child,
+.table.is-enhanced thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--background-primary);
+}
+
+/* --- 条纹与悬停 --- */
+.table.is-enhanced tbody tr:nth-child(even) td {
+  background: var(--background-secondary);
+}
+.table.is-enhanced tbody tr:hover td {
+  background: var(--background-accent);
+}
+
+/* --- 数字列：右对齐 + 等宽数字 --- */
+.table.is-enhanced .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums; /* 等宽数字，列对齐更漂亮 */
+}
+
+/* --- 页脚强调 --- */
+.table.is-enhanced tfoot th {
+  font-weight: 800;
+  background: var(--background-accent);
+  border-top: 2px solid var(--border-color);
+}
+
+/* --- Caption 更显眼 & 顶部显示（可选）--- */
+.table.is-enhanced caption {
+  caption-side: top;               /* 想放底部就删掉这一行 */
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: var(--text-secondary);
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+}
+
+/* --- 可选：单元格内“水平柱状条”可视化 --- */
+.table.is-enhanced .databar {
+  --pct: 0%;                       /* JS 会写入百分比，比如 72% */
+  position: relative;
+  background-image: linear-gradient(
+    to right,
+    rgba(37, 99, 235, 0.16) 0,
+    rgba(37, 99, 235, 0.16) var(--pct),
+    transparent var(--pct),
+    transparent 100%
+  );
+  border-radius: 6px;
+}
+.table.is-enhanced .databar .val {
+  position: relative;              /* 文字置于色带上层 */
+  z-index: 1;
+}
