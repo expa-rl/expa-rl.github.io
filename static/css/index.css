@@ -446,6 +446,7 @@ body {
 
 /* BibTeX Styling */
 pre {
+  white-space: pre-wrap;      /* 保留换行，同时允许自动换行 */
   background: var(--background-accent) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: var(--border-radius) !important;
