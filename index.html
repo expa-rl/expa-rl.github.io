@@ -237,13 +237,13 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong class="text-highlight">adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (<a href="#figure1" class="ref-link">Figure 1</a>), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1" class="ref-link">Figure 1</a>). Qualitative analysis (<a href="#table1" class="ref-link">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
+        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong class="text-highlight">adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (example in <a href="#figure1" class="ref-link">Figure 1</a> caption), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1" class="ref-link">Figure 1</a>). Qualitative analysis (<a href="#table1" class="ref-link">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
       </p>
       
     <div class="item" id="figure1">
       <img src="static/images/countdown.png" loading="lazy"/>
       <p style="margin-bottom:1rem;">
-        <strong>Figure 1.</strong> Exact Match (%) comparison on the Countdown task. We fine-tune <strong>Qwen2.5-3B</strong> and <strong>Qwen2.5-7B</strong> on a multi-task benchmark that includes Countdown as a sub-task, and evaluate them on a held-out Countdown test set. Full benchmark results are provided in the paper.
+        <strong>Figure 1.</strong> Exact Match (%) comparison on the Countdown task (Example: "Using the numbers [2900, 1205, 5911, 4], create an equation that equals -4212."). We fine-tune <strong>Qwen2.5-3B</strong> and <strong>Qwen2.5-7B</strong> on a multi-task benchmark that includes Countdown as a sub-task, and evaluate them on a held-out Countdown test set. Full benchmark results are provided in the paper.
       </p>
     </div>
 
@@ -387,7 +387,12 @@
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
         To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (<strong>EARL</strong>) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
       </p>
-    <h2 class="title is-4"><span class="dvima">Approach</span></h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><span class="dvima">Approach</span></h2>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
       We propose a fundamental shift from the language-only paradigm for interacting with environments (<a href="#figure3" class="ref-link">Figure 3</a>). Our aim is threefold: 
     </p>  
@@ -486,14 +491,12 @@
         <span class="copy-text">Copy</span>
       </button>
     </div>
-    <pre id="bibtex-code">
-      <code>  @misc{2510.07581,
+    <pre id="bibtex-code"><code>  @misc{2510.07581,
     Author = {Zhongqi Yue and Weishi Wang and Yundaichuan Zhan and Juncheng Li and Daniel Dahlmeier and Fredrik D. Johansson},
     Title = {Expanding the Action Space of LLMs to Reason Beyond Language},
     Year = {2025},
     Eprint = {arXiv:2510.07581},
-  }</code>
-    </pre>
+  }</code></pre>
   </div>
 </section>
 <!--End BibTex citation -->
