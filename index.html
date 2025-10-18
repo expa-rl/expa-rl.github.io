@@ -49,12 +49,19 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <style>
+    .text-highlight {
+      font-size: 1.3em;       /* 放大字体 */
+      font-weight: 700;       /* 加粗 */
+      text-decoration: underline;      /* 可选：如果你还想下划线 */
+      text-underline-offset: 3px;      /* 可选：下划线距离文字的间距 */
+      color: var(--primary-color);     /* 可选：使用主题蓝色 */
+    }
     .small-image {
-    width: auto;
-    height: 40px;
-    vertical-align: middle; /* to align the image with the text */
-    margin-top: 10px;
-    margin-right: 12px; /* to give some space between the image and the text */
+      width: auto;
+      height: 40px;
+      vertical-align: middle; /* to align the image with the text */
+      margin-top: 10px;
+      margin-right: 12px; /* to give some space between the image and the text */
     }
 
     .small-image-logo {
@@ -362,7 +369,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong>adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (Figure 1), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1">Figure 1</a>). Qualitative analysis (<a href="#table1">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
+        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong class="text-highlight">adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (<a href="#figure1">Figure 1</a>), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1">Figure 1</a>). Qualitative analysis (<a href="#table1">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
       </p>
       
     <div class="item" id="figure1">
