@@ -177,12 +177,11 @@ body {
 }
 
 .hero-body {
-  padding: 4rem 1.5rem;
+  padding: 4rem ;
 }
 
 .teaser .hero-body {
   padding-top: 2rem;
-  padding-bottom: 1rem;
 }
 
 .teaser {
