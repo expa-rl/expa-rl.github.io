@@ -180,6 +180,9 @@ body {
   padding: 4rem ;
 }
 
+.hero .hero-body {
+  padding-bottom: 1rem ;
+}
 .teaser .hero-body {
   padding-top: 2rem;
 }
