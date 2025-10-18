@@ -362,17 +362,17 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong>adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (Figure 1), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (Figure 1). Qualitative analysis (Table 1) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
+        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong>adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (Figure 1), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1">Figure 1</a>). Qualitative analysis (<a href="#table1">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
       </p>
       
-    <div class="item">
+    <div class="item" id="figure1">
       <img src="static/images/countdown.png" loading="lazy"/>
       <p>
         <strong>Figure 1.</strong> Exact Match (%) comparison on the Countdown task. We fine-tune <strong>Qwen2.5-3B</strong> and <strong>Qwen2.5-7B</strong> on a multi-task benchmark that includes Countdown as a sub-task, and evaluate them on a held-out Countdown test set. Full benchmark results are provided in the paper.
       </p>
     </div>
 
-    <div class="table-container">
+    <div class="table-container"  id="table1">
       <table class="table is-striped is-hoverable is-fullwidth is-narrow">
         
         <thead>
@@ -483,10 +483,10 @@
         In this work, we train agents to order a set of hidden numbers using compare and swap environments, e.g., “compare A, B” reveals their relation, while “swap A, B” updates the hidden state. This task is challenging, as the agent must plan contingently from comparison outcomes, reason precisely over first-order relations, and manipulate hidden states through interactions rather than text output, which makes this a realistic testbed for interactive decision-making situations such as embodied AI.
       </p>
       <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong>with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (Figure 2).
+        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong>with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (<a href="#figure2">Figure 2</a>).
       </p>
       
-    <figure class="image">
+    <figure class="image" id="figure2">
       <video class="is-fullwidth" autoplay muted loop playsinline controls>
         <source src="static/videos/SORT.mp4" type="video/mp4">
       </video>
@@ -505,7 +505,7 @@
       </p>
     <h2 class="title is-4"><span class="dvima">Approach</span></h2>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-      We propose a fundamental shift from the language-only paradigm for interacting with environments (Figure 3). Our aim is threefold: 
+      We propose a fundamental shift from the language-only paradigm for interacting with environments (<a href="#figure3">Figure 3</a>). Our aim is threefold: 
     </p>  
     <ul style="font-size: 120%;margin-left:1rem; line-height:1.6; list-style-type: disc;">
         <li> Decouple environment interactions from language reasoning</li>
@@ -513,7 +513,7 @@
         <li> Fully support RL on base models, i.e., Zero-RL, without requiring supervised tool-call data or adherence to predefined language patterns.</li>
     </ul>
     <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
-      We propose to expand the LLM’s action space for interactions (Figure 4), and derive a training strategy to explore these interactions while supporting Zero-RL (Figure 5).
+      We propose to expand the LLM’s action space for interactions (<a href="#figure4">Figure 4</a>), and derive a training strategy to explore these interactions while supporting Zero-RL (<a href="#figure5">Figure 5</a>).
     </p>
   </div>
   <div class="container is-max-desktop">
@@ -521,7 +521,7 @@
       <!-- left: video -->
       <div class="column is-6">
         <div class="column has-text-centered">
-          <figure class="image">
+          <figure class="image" id="figure3">
             <video class="is-fullwidth" autoplay muted loop playsinline controls>
               <source src="static/videos/base_mdp.mp4" type="video/mp4">
             </video>
@@ -546,7 +546,7 @@
     <div class="columns is-vcentered is-variable is-6">
       <div class="column is-6">
         <div class="column has-text-centered">
-          <figure class="image">
+          <figure class="image" id="figure4">
             <video class="is-fullwidth" autoplay muted loop playsinline controls>
               <source src="static/videos/earl_mdp.mp4" type="video/mp4">
             </video>
@@ -570,7 +570,7 @@
     <div class="columns is-vcentered is-variable is-6">
       <div class="column is-6">
         <div class="column has-text-centered">
-          <figure class="image">
+          <figure class="image"  id="figure5">
             <video class="is-fullwidth" autoplay muted loop playsinline controls>
               <source src="static/videos/counterfactual.mp4" type="video/mp4">
             </video>
