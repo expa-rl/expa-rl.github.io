@@ -941,3 +941,41 @@ a:focus {
   position: relative;              /* 文字置于色带上层 */
   z-index: 1;
 }
+/* 让容器成为层叠上下文，有助于 sticky 正常叠放 */
+.table-container { position: relative; }
+
+/* 表头 sticky（top）层级略高 */
+.table.is-enhanced thead th { z-index: 3; }
+
+/* 左上角“交叉单元格”（既 sticky top 又 sticky left）层级最高，避免被任何东西遮挡 */
+.table.is-enhanced thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 6;                         /* 角块 > 表头其他格 > 首列正文 */
+  background:
+    var(--thead-overlay, linear-gradient(0deg, rgba(0,0,0,.07), rgba(0,0,0,.07))),
+    var(--gradient-subtle);           /* 保留你之前的表头渐变 */
+  /* 可选：右侧投一点内阴影，加强分隔感 */
+  box-shadow: inset -1px 0 0 var(--border-color), 0 1px 0 rgba(0,0,0,.03);
+}
+
+/* 首列正文 sticky：层级要比其它 td 高，但低于角块 */
+.table.is-enhanced tbody th:first-child,
+.table.is-enhanced tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 5;                          /* 比普通单元格高，确保不被覆盖 */
+  background: var(--background-primary);
+  box-shadow: inset -1px 0 0 var(--border-color); /* 右侧加一道分隔线 */
+  /* 下面两行有助于 iOS/Safari 处理 sticky 与 repaint 的小毛病 */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 确保其它单元格没有意外抬高层级（通常不需要，但以防万一） */
+.table.is-enhanced td,
+.table.is-enhanced th { z-index: 0; }
+
+/* 如果你的数字条（databar）里有设置 z-index 的子元素，确保它们不越权到 sticky 之上 */
+.table.is-enhanced .databar { position: relative; z-index: 0; }
+.table.is-enhanced .databar .val { position: relative; z-index: 1; } /* 仅覆盖本单元格内部 */
