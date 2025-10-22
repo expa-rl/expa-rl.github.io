@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="EARL">
+  <meta name="description" content="Expanding the Action Space of LLMs to Reason Beyond Language">
+  <meta name="keywords" content="EARL, LLMs, AI">
+  <meta name="author" content="Zhongqi Yue, Weishi Wang, Yundaichuan Zhan, Juncheng Li, Daniel Dahlmeier, Fredrik D. Johansson">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chalmers & SAP & ZJU">
+  <meta property="og:title" content="EARL">
+  <meta property="og:description" content="Expanding the Action Space of LLMs to Reason Beyond Language">
+  <meta property="og:url" content="https://expa-rl.github.io/">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Zhongqi Yue, Weishi Wang, Yundaichuan Zhan, Juncheng Li, Daniel Dahlmeier, Fredrik D. Johansson">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>EARL</title>
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/EARL.png">
+  <link rel="apple-touch-icon" href="static/images/EARL.png">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+</head>
+<body>
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <template id="hidden-block">
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 1</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 2</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 3</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  </template>
+
+<main id="main-content">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">EARL: Expanding the Action Space of LLMs to Reason Beyond Language</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yue-zhongqi.github.io/" target="_blank">Zhongqi Yue</a><sup>1*</sup>,
+              <a href="https://scholar.google.com/citations?user=P8TGNcoAAAAJ&hl=en" target="_blank">Weishi Wang</a><sup>2*</sup>,
+              <a href="https://scholar.google.com/citations?user=rP5Imh4AAAAJ&hl=en" target="_blank">Yundaichuan Zhan</a><sup>3</sup>,
+              <a href="https://scholar.google.com/citations?user=lm9s-QgAAAAJ&hl=en" target="_blank">Juncheng Li</a><sup>3</sup>,
+              <a href="https://scholar.google.com/citations?user=IrwwO8cAAAAJ&hl=en" target="_blank">Daniel Dahlmeier</a><sup>2</sup>,
+              <a href="https://scholar.google.com/citations?user=ml-AyBQAAAAJ&hl=en" target="_blank">Fredrik D. Johansson</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1 </sup><img src="static/images/Chalmers.svg" class="small-image-60">  <img src="static/images/Chamlers_Logo.png" class="small-image-30"></span>
+            <span class="author-block"><sup>2 </sup><img src="static/images/SAP_Logo.png" class="small-image-55"></span>
+            <span class="author-block"><sup>3 </sup><img src="static/images/ZJU_Logo.png" class="small-image-60"></span>
+            <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution. zhongqi@chalmers.se, weishi.wang@sap.com</small></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <span class="link-block">
+                <a href="https://github.com/yue-zhongqi/earl" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2510.07581.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://huggingface.co/papers/2510.18701" target="_blank" 
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon is-small">
+                  <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
+                    alt="Hugging Face logo"
+                    style="height: 1em; vertical-align: -0.15em;">
+                </span>
+                <span>Huggingface</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+                  <strong>TL;DR:</strong> We propose a new paradigm for post-training LLMs with external environments to incentivize reasoning and agentic behavior, showing promising results.
+                </p>
+                <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+                  Currently, interactions with external environments must be expressed through text in predefined formats, parsed, and routed to external interfaces. This overloads the model’s language with both reasoning and control duties, and requires a hand-crafted parser, external to the LLM. To address this, we decouple environment interactions from language by internalizing them in an Expanded Action space (<strong>ExpA</strong>), beyond the vocabulary. We illustrate how ExpA differs from traditional paradigm later. ExpA leads to promising results in 3 key areas.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><span class="dvima">1. Multi-turn Contingent Planning</span></h2>
+      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+        Many challenging reasoning tasks require not only multi-turn interactions with external environments but also <strong class="text-highlight">adaptive decision-making</strong> based on intermediate feedback. In our Countdown task (example in <a href="#figure1" class="ref-link">Figure 1</a> caption), agents must use an external calculator to reach a target number. Each problem admits up to 7,680 unique combinations, demanding efficient reasoning and dynamic strategy adjustment (e.g., shifting tactics when far from the target). Agents trained with ExpA Reinforcement Learning (<strong>EARL</strong>) significantly outperform strong vocabulary-constrained baselines (<a href="#figure1" class="ref-link">Figure 1</a>). Qualitative analysis (<a href="#table1" class="ref-link">Table 1</a>) further shows that the EARL agent respond more sensitively to intermediate observations, a key trait of effective planning.
+      </p>
+      
+    <div class="item" id="figure1">
+      <img src="static/images/countdown.png" loading="lazy"/>
+      <p style="margin-bottom:1rem;">
+        <strong>Figure 1.</strong> Exact Match (%) comparison on the Countdown task (Example: "Using the numbers [2900, 1205, 5911, 4], create an equation that equals -4212."). We fine-tune <strong>Qwen2.5-3B</strong> and <strong>Qwen2.5-7B</strong> on a multi-task benchmark that includes Countdown as a sub-task, and evaluate them on a held-out Countdown test set. Full benchmark results are provided in the paper.
+      </p>
+    </div>
+
+<div class="table-card">
+  <div class="table-container">
+    <table class="table is-enhanced is-narrow">
+      <caption class="has-text-weight-semibold has-text-centered">
+        <strong>Table 1.</strong> Number of occurrences of planning-related keywords in testing.
+      </caption>
+
+      <colgroup>
+        <col style="width: 26%">
+        <col span="4" style="width: 18.5%">
+      </colgroup>
+
+      <thead>
+        <tr>
+          <th>Phrase</th>
+          <th class="has-text-right">EARL</th>
+          <th class="has-text-right">Prompt+CPO</th>
+          <th class="has-text-right">Prompt+GRPO</th>
+          <th class="has-text-right">SFT+GRPO</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>not close</td>
+          <td class="num databar"><span class="val">9,961</span></td>
+          <td class="num databar"><span class="val">99</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">18</span></td>
+        </tr>
+        <tr>
+          <td>is close</td>
+          <td class="num databar"><span class="val">805</span></td>
+          <td class="num databar"><span class="val">2,930</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">855</span></td>
+        </tr>
+        <tr>
+          <td>close to</td>
+          <td class="num databar"><span class="val">3,019</span></td>
+          <td class="num databar"><span class="val">1,138</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">2,253</span></td>
+        </tr>
+        <tr>
+          <td>still close</td>
+          <td class="num databar"><span class="val">9</span></td>
+          <td class="num databar"><span class="val">193</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+        </tr>
+        <tr>
+          <td>different approach</td>
+          <td class="num databar"><span class="val">7,586</span></td>
+          <td class="num databar"><span class="val">92</span></td>
+          <td class="num databar"><span class="val">1,650</span></td>
+          <td class="num databar"><span class="val">15</span></td>
+        </tr>
+        <tr>
+          <td>another approach</td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">1,769</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">219</span></td>
+        </tr>
+        <tr>
+          <td>different combination</td>
+          <td class="num databar"><span class="val">8,851</span></td>
+          <td class="num databar"><span class="val">39</span></td>
+          <td class="num databar"><span class="val">2,040</span></td>
+          <td class="num databar"><span class="val">377</span></td>
+        </tr>
+        <tr>
+          <td>another combination</td>
+          <td class="num databar"><span class="val">1,784</span></td>
+          <td class="num databar"><span class="val">46</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">58</span></td>
+        </tr>
+        <tr>
+          <td>negate</td>
+          <td class="num databar"><span class="val">682</span></td>
+          <td class="num databar"><span class="val">4</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">121</span></td>
+        </tr>
+        <tr>
+          <td>far from</td>
+          <td class="num databar"><span class="val">8,264</span></td>
+          <td class="num databar"><span class="val">141</span></td>
+          <td class="num databar"><span class="val">0</span></td>
+          <td class="num databar"><span class="val">10</span></td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <th class="num databar"><span class="val">40,961</span></th>
+          <th class="num databar"><span class="val">6,451</span></th>
+          <th class="num databar"><span class="val">3,690</span></th>
+          <th class="num databar"><span class="val">3,926</span></th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><span class="dvima">2. Partially Observed Environment</span></h2>
+      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+        In agentic settings, LLMs can extend their reasoning into external environments by mapping language instructions into operations such as API calls or robotic control, allowing them to solve tasks in the digital or physical worlds. Such scenarios are typically partially observed, where the agent must interact with the environments to access their hidden states.
+      </p>
+      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+        In this work, we train agents to order a set of hidden numbers using compare and swap environments, e.g., “compare A, B” reveals their relation, while “swap A, B” updates the hidden state. This task is challenging, as the agent must plan contingently from comparison outcomes, reason precisely over first-order relations, and manipulate hidden states through interactions rather than text output, which makes this a realistic testbed for interactive decision-making situations such as embodied AI.
+      </p>
+      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+        Interestingly, agents with ExpA achieves perfect Sort-4 accuracy <strong class="text-highlight">with just 70 training steps</strong>, while self-discovering an efficient algorithm competitive with classical designs (<a href="#figure2" class="ref-link">Figure 2</a>).
+      </p>
+      
+    <figure class="image" id="figure2">
+      <video class="is-fullwidth" autoplay muted loop playsinline controls>
+        <source src="static/videos/SORT.mp4" type="video/mp4">
+      </video>
+    </figure>
+    <p class="has-text-centered">
+      <strong>Figure 2.</strong> An example for reasoning with expanded actions.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><span class="dvima">3. Readiness for Zero-RL</span></h2>
+      <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+        To promote effective exploration of the expanded action space and new environments, we introduce ExpA Reinforcement Learning (<strong>EARL</strong>) with counterfactual policy optimization, which fully supports RL on base models, i.e., without requiring supervised tool-call data or adherence to predefined language patterns.
+      </p>
+  </div>
+</section>
+
+<section class="section hero is-light" >
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><span class="dvima">Approach</span></h2>
+    <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      We propose a fundamental shift from the language-only paradigm for interacting with environments (<a href="#figure3" class="ref-link">Figure 3</a>). Our aim is threefold: 
+    </p>  
+    <ul style="font-size: 120%;margin-left:1rem; line-height:1.6; list-style-type: disc;">
+        <li> Decouple environment interactions from language reasoning</li>
+        <li> Enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.</li>
+        <li> Fully support RL on base models, i.e., Zero-RL, without requiring supervised tool-call data or adherence to predefined language patterns.</li>
+    </ul>
+    <p style="font-size: 120%; margin-bottom:1rem; line-height:1.6;">
+      We propose to expand the LLM’s action space for interactions (<a href="#figure4" class="ref-link">Figure 4</a>), and derive a training strategy to explore these interactions while supporting Zero-RL (<a href="#figure5" class="ref-link">Figure 5</a>).
+    </p>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      <!-- left: video -->
+      <div class="column is-6">
+        <div class="column has-text-centered">
+          <figure class="image" id="figure3">
+            <video class="is-fullwidth" autoplay muted loop playsinline controls>
+              <source src="static/videos/base_mdp.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <p>
+            <strong>Figure 3.</strong> A simple example for reasoning with vocabulary-based interactions.
+          </p>
+        </div>
+        
+      </div>
+      <!-- right: text -->
+      <div class="column is-6">
+        <h2 class="title is-4"><span class="dvima">Interactions by Vocabulary</span></h2>
+          <p>
+            In current works, LLMs can be viewed as agents acting in decision processes with an action space restricted to vocabulary. Interactions with external environments are mediated through a parser, which translates predefined text patterns (e.g., tool tags or structured JSON) into environment-specific actions, routed to the corresponding environment. The environment executes the actions and returns a plain-text observation, which is appended to the model's context.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      <div class="column is-6">
+        <div class="column has-text-centered">
+          <figure class="image" id="figure4">
+            <video class="is-fullwidth" autoplay muted loop playsinline controls>
+              <source src="static/videos/earl_mdp.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <p>
+            <strong>Figure 4.</strong> An example for reasoning with expanded actions.
+          </p>
+        </div>
+      </div>
+
+      <div class="column is-6">
+        <h2 class="title is-4"><span class="dvima">Interactions by Expanded Actions</span></h2>
+          <p>
+            We decouple environment interactions from language by internalizing them in an Expanded Action space (<strong>ExpA</strong>), beyond the vocabulary. The model starts reasoning in the default language environment, but may trigger routing actions and switch to an external environment at any time. From there, the model can only invoke environment-specific actions, receive feedback from the environment, and potentially route back to language as a result. This enable end-to-end training by removing reliance on external parsers and keeping interactions under the model’s control.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      <div class="column is-6">
+        <div class="column has-text-centered">
+          <figure class="image"  id="figure5">
+            <video class="is-fullwidth" autoplay muted loop playsinline controls>
+              <source src="static/videos/counterfactual.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <p>
+            <strong>Figure 5.</strong> An example of counterfactual policy optimization, which involves both factual and counterfactual rollouts.
+          </p>
+        </div>
+      </div>
+
+      <div class="column is-6">
+        <h2 class="title is-4"><span class="dvima">EARL with Counterfactual Policy Optimization</span></h2>
+          <p>
+            To promote effective exploration of the expanded action space and new environments, we employ ExpA with RL (<strong>ExpA</strong>). During training, for each (factual) rollout, we construct a counterfactual rollout by forcing a routing action at a plausible intermediate step, identified as a position where the model assigns high probability to the routingdescription token. The advantage is then computed as the difference between the counterfactual and original rewards, thereby encouraging exploration of rarely visited but essential environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="bibtex-header">
+      <h2 class="title">BibTeX</h2>
+      <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+        <i class="fas fa-copy"></i>
+        <span class="copy-text">Copy</span>
+      </button>
+    </div>
+    <pre id="bibtex-code"><code>  @misc{2510.07581,
+    Author = {Zhongqi Yue and Weishi Wang and Yundaichuan Zhan and Juncheng Li and Daniel Dahlmeier and Fredrik D. Johansson},
+    Title = {Expanding the Action Space of LLMs to Reason Beyond Language},
+    Year = {2025},
+    Eprint = {arXiv:2510.07581},
+  }</code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p style="font-size: 80%">
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
